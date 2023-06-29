@@ -1,3 +1,5 @@
+# FROM node:lts-alpine
+
 FROM node:16
 
 # Create app directory
@@ -8,8 +10,10 @@ COPY package*.json ./
 
 RUN npm install
 
+RUN nvm install 16
+
 # Bundle app source
 COPY . .
 
-EXPOSE 4000
+EXPOSE 3000
 CMD [ "node", "bin/www" ]
